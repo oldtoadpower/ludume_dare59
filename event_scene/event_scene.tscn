@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dgq1aur7rikit"]
+
+[ext_resource type="Script" uid="uid://bcbtx51j0gf8d" path="res://event_scene/event_scene.gd" id="1_rwja4"]
+
+[node name="event_scene" type="Node2D" unique_id=154016781]
+script = ExtResource("1_rwja4")
+
+[node name="Control" type="Control" parent="." unique_id=1885279991]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 480.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=719519971]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="event_text" type="RichTextLabel" parent="Control/VBoxContainer" unique_id=1093478596]
+layout_mode = 2
+bbcode_enabled = true
+text = "event_text"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="event_text_label" type="Label" parent="Control/VBoxContainer" unique_id=1426520765]
+visible = false
+layout_mode = 2
+text = "EVENT"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Control/VBoxContainer" unique_id=394109765]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "OK"
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]

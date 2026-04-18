@@ -12,13 +12,13 @@ layout_mode = 3
 anchors_preset = 0
 size_flags_vertical = 0
 
-[node name="go_button" type="Button" parent="Control" unique_id=241233508]
+[node name="move_button" type="Button" parent="Control" unique_id=241233508]
 layout_mode = 0
 offset_left = 368.0
 offset_top = 352.0
 offset_right = 530.0
 offset_bottom = 383.0
-text = "Go"
+text = "MOVE"
 
 [node name="explore_button" type="Button" parent="Control" unique_id=756704379]
 layout_mode = 0
@@ -40,5 +40,5 @@ position = Vector2(120.00001, 160.00002)
 scale = Vector2(0.42, 0.42)
 texture = ExtResource("3_apbfk")
 
-[connection signal="button_down" from="Control/go_button" to="." method="_on_go_button_down"]
+[connection signal="button_down" from="Control/move_button" to="." method="_on_go_button_down"]
 [connection signal="button_down" from="Control/explore_button" to="." method="_on_explore_button_down"]

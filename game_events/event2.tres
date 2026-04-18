@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GameEvent" format=3 uid="uid://cci5ygex22xp6"]
+
+[ext_resource type="Script" uid="uid://bvwgjucpm1u2h" path="res://scripts/events.gd" id="1_2fd84"]
+
+[resource]
+script = ExtResource("1_2fd84")
+text = "Вы находите труп мужчины в полицейской форме[br]и решаете  обыскать его пока он не поднялся,[br]к сожалению обойма пистолета пуста,[br]но в карманах вы находите бумажник."
+parament = "money"
+change_value = 50
+metadata/_custom_type_script = "uid://bvwgjucpm1u2h"

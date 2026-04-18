@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GameEvent" format=3 uid="uid://bkkle8k81qtrw"]
+
+[ext_resource type="Script" uid="uid://bvwgjucpm1u2h" path="res://scripts/events.gd" id="1_adgl8"]
+
+[resource]
+script = ExtResource("1_adgl8")
+text = "Test event number 1 (-10 HP)"
+parament = "hp"
+change_value = -10
+metadata/_custom_type_script = "uid://bvwgjucpm1u2h"

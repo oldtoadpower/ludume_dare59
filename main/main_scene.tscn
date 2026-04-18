@@ -1,11 +1,24 @@
 [gd_scene format=3 uid="uid://dio24b21qiwb0"]
 
 [ext_resource type="Script" uid="uid://b8sx0u8ukwqj6" path="res://scripts/game_controller.gd" id="1_8p0yu"]
-[ext_resource type="PackedScene" uid="uid://cjm8qu6ma1tbw" path="res://path_scene/path.tscn" id="2_wqact"]
+[ext_resource type="Script" uid="uid://b1pot6kar0cff" path="res://main/game_event_manager.gd" id="2_8p0yu"]
+[ext_resource type="Script" uid="uid://bvwgjucpm1u2h" path="res://scripts/events.gd" id="3_xc8me"]
+[ext_resource type="Resource" uid="uid://bkkle8k81qtrw" path="res://game_events/event1_test.tres" id="4_v3ear"]
+[ext_resource type="Resource" uid="uid://cci5ygex22xp6" path="res://game_events/event2.tres" id="5_m3hh0"]
+[ext_resource type="Resource" uid="uid://c7liw2nwf06ei" path="res://game_events/event3.tres" id="6_vtfip"]
+
+[sub_resource type="Resource" id="Resource_m3hh0"]
+script = ExtResource("3_xc8me")
+text = "Тест -20 воды"
+parament = "water"
+change_value = -20
+metadata/_custom_type_script = "uid://bvwgjucpm1u2h"
 
 [node name="MainScene" type="Node2D" unique_id=735320970]
 script = ExtResource("1_8p0yu")
 
-[node name="current_scene" type="Node2D" parent="." unique_id=1421241234]
+[node name="display_scene" type="Node2D" parent="." unique_id=1421241234]
 
-[node name="Path" parent="current_scene" unique_id=2032447789 instance=ExtResource("2_wqact")]
+[node name="game_event_manager" type="Node2D" parent="." unique_id=1849007147]
+script = ExtResource("2_8p0yu")
+events_list = Array[ExtResource("3_xc8me")]([ExtResource("4_v3ear"), ExtResource("5_m3hh0"), ExtResource("6_vtfip"), SubResource("Resource_m3hh0")])
