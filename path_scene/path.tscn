@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cjm8qu6ma1tbw"]
+
+[ext_resource type="Script" uid="uid://5uoh6lh2uic3" path="res://path_scene/path.gd" id="1_jtrxe"]
+[ext_resource type="Texture2D" uid="uid://ck8rnyovodcuk" path="res://tests/template_square.png" id="2_ps3u1"]
+[ext_resource type="Texture2D" uid="uid://2y8aht35ernv" path="res://tests/template_circle.png" id="3_apbfk"]
+
+[node name="Path" type="Node2D" unique_id=2032447789]
+script = ExtResource("1_jtrxe")
+
+[node name="Control" type="Control" parent="." unique_id=933494849]
+layout_mode = 3
+anchors_preset = 0
+size_flags_vertical = 0
+
+[node name="go_button" type="Button" parent="Control" unique_id=241233508]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 352.0
+offset_right = 530.0
+offset_bottom = 383.0
+text = "Go"
+
+[node name="explore_button" type="Button" parent="Control" unique_id=756704379]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 352.0
+offset_right = 274.0
+offset_bottom = 383.0
+text = "explore"
+
+[node name="path_line" type="Sprite2D" parent="." unique_id=387226247]
+modulate = Color(1, 1, 1, 0.78431374)
+position = Vector2(320, 160)
+scale = Vector2(4.6400003, 0.16000012)
+texture = ExtResource("2_ps3u1")
+
+[node name="player_sprite" type="Sprite2D" parent="." unique_id=614925476]
+modulate = Color(0.25066665, 0.94, 0, 1)
+position = Vector2(120.00001, 160.00002)
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("3_apbfk")
+
+[connection signal="button_down" from="Control/go_button" to="." method="_on_go_button_down"]
+[connection signal="button_down" from="Control/explore_button" to="." method="_on_explore_button_down"]

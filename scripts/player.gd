@@ -8,7 +8,7 @@ var karma: int = 0
 
 var player_dead: bool = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if hp <= 0 and not player_dead:
 		player_dead = true
 		print("PLAER DEAD")
@@ -34,3 +34,5 @@ func reset_param() -> void:
 	water = 100
 	ammo = 50
 	karma = 0
+	
+	player_dead = false

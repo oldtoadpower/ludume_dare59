@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="LDjam59"
+run/main_scene="uid://cjm8qu6ma1tbw"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Main="*uid://bbxjc44wtd06v"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
 
 [physics]
 
