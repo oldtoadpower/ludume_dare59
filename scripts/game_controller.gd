@@ -18,7 +18,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if player.hp <= 0 and not player.player_dead:
 		player.player_dead = true
-		print("PLAER DEAD")
+		print("PLAYER DEAD")
 		
 	if player.energy <= 0 and not player.empty_energy:
 		player.empty_energy = true

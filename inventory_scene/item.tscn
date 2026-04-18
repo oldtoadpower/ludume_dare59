@@ -3,9 +3,21 @@
 [ext_resource type="Script" uid="uid://c83dnio3tv6x1" path="res://inventory_scene/item.gd" id="1_0xwuh"]
 [ext_resource type="Texture2D" uid="uid://2y8aht35ernv" path="res://tests/template_circle.png" id="2_mrhdu"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xwuh"]
+size = Vector2(32, 96)
+
 [node name="item" type="Node2D" unique_id=1373369364]
 script = ExtResource("1_0xwuh")
 
 [node name="item_sprite" type="Sprite2D" parent="." unique_id=152675939]
 scale = Vector2(0.5, 1)
 texture = ExtResource("2_mrhdu")
+
+[node name="button_area" type="Area2D" parent="." unique_id=683781774]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="button_area" unique_id=1594117955]
+shape = SubResource("RectangleShape2D_0xwuh")
+
+[connection signal="input_event" from="button_area" to="." method="_on_button_area_input_event"]
+[connection signal="mouse_entered" from="button_area" to="." method="_on_button_area_mouse_entered"]
+[connection signal="mouse_exited" from="button_area" to="." method="_on_button_area_mouse_exited"]

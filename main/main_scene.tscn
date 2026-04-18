@@ -30,12 +30,14 @@ metadata/_custom_type_script = "uid://b5jod330da51a"
 [sub_resource type="Resource" id="Resource_ncflg"]
 script = ExtResource("8_ncflg")
 name = "food"
+type = "food"
 number = 10
 metadata/_custom_type_script = "uid://b5jod330da51a"
 
 [sub_resource type="Resource" id="Resource_sfolt"]
 script = ExtResource("8_ncflg")
 name = "bottle of water"
+type = "water"
 number = 5
 metadata/_custom_type_script = "uid://b5jod330da51a"
 
@@ -47,7 +49,6 @@ script = ExtResource("2_8p0yu")
 events_list = Array[ExtResource("3_xc8me")]([ExtResource("4_v3ear"), ExtResource("5_m3hh0"), ExtResource("6_vtfip"), SubResource("Resource_m3hh0")])
 
 [node name="invetory_controller" type="Node2D" parent="." unique_id=730163971]
-visible = false
 script = ExtResource("7_vtfip")
 tools_list = Array[ExtResource("8_ncflg")]([SubResource("Resource_mhk4r"), SubResource("Resource_rmejh")])
 storage = Array[ExtResource("8_ncflg")]([SubResource("Resource_ncflg"), SubResource("Resource_sfolt")])
