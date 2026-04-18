@@ -1,7 +1,8 @@
-extends Node
+extends Node2D
 
 var game_controller: GameController
 var event_manager: EventManager
+var inventory_controller: InventoryController
 
 func _ready():
 	randomize()

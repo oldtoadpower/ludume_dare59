@@ -36,12 +36,12 @@ func _on_go_button_down() -> void:
 		
 		path_pos +=step_distance
 		if path_pos > current_signal.distance or (current_signal.distance - path_pos) <= 5:
-			path_end = true
 			path_pos = current_signal.distance
 		
 		move_player_tween(path_pos)
 		
 	if path_end:
+		Main.game_controller.current_path_end = true
 		print("PATH END")
 		Main.game_controller.play_end_event_scene()
 
@@ -59,10 +59,21 @@ func move_player_tween(new_position: int) -> void:
 	tween.tween_property(player_sprite, 'position', Vector2(player_pos.x + move_dist, player_pos.y), 0.3)
 	tween.finished.connect(func(): tween_move = false)
 	tween.finished.connect(func(): move_button.disabled = false)
+	tween.finished.connect(event_check)
+	tween.finished.connect(check_end_path)
 	tween.finished.connect(func(): tween.kill())
-	tween.finished.connect(func(): event_check())
-	
+
+func check_end_path() -> void:
+	if path_pos == current_signal.distance:
+		print("PATH END")
+		path_end = true
+		Main.game_controller.current_path_end = true
+		Main.game_controller.play_end_event_scene()
+
 func event_check():
+	if path_pos == current_signal.distance:
+		return
+	
 	if Main.get_chance(Main.game_controller.player.event_percent):
 		print("EVENT")
 		Main.game_controller.play_event_scene()

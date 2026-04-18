@@ -1,17 +1,19 @@
 class_name GameController
-extends Node
+extends Node2D
 
 var player =  Player
 
 var current_scene: Node2D
 var remove_scene: Node2D
 
+var current_path_end: bool = false
+
 @onready var display_scene: Node2D = $display_scene
 
 func _ready() -> void:
 	Main.game_controller = self
 	create_run()
-	change_scene("res://path_scene/path.tscn")
+	play_signal_scene()
 	
 func _process(_delta: float) -> void:
 	if player.hp <= 0 and not player.player_dead:
@@ -46,6 +48,12 @@ func play_event_scene():
 	
 func play_end_event_scene():
 	change_scene("res://event_scene/event_scene.tscn")
+	
+func play_path_scene():
+	change_scene("res://path_scene/path.tscn")
+	
+func play_signal_scene():
+	change_scene("res://signal_scene/signal_scene.tscn")
 	
 func restore_scene() -> void:
 	if remove_scene:

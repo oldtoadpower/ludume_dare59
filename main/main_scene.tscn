@@ -6,6 +6,9 @@
 [ext_resource type="Resource" uid="uid://bkkle8k81qtrw" path="res://game_events/event1_test.tres" id="4_v3ear"]
 [ext_resource type="Resource" uid="uid://cci5ygex22xp6" path="res://game_events/event2.tres" id="5_m3hh0"]
 [ext_resource type="Resource" uid="uid://c7liw2nwf06ei" path="res://game_events/event3.tres" id="6_vtfip"]
+[ext_resource type="Script" uid="uid://cgbr1qn6dbyd6" path="res://main/invetory_controller.gd" id="7_vtfip"]
+[ext_resource type="Script" uid="uid://b5jod330da51a" path="res://scripts/tools.gd" id="8_ncflg"]
+[ext_resource type="Texture2D" uid="uid://ck8rnyovodcuk" path="res://tests/template_square.png" id="9_mhk4r"]
 
 [sub_resource type="Resource" id="Resource_m3hh0"]
 script = ExtResource("3_xc8me")
@@ -14,11 +17,48 @@ parament = "water"
 change_value = -20
 metadata/_custom_type_script = "uid://bvwgjucpm1u2h"
 
+[sub_resource type="Resource" id="Resource_mhk4r"]
+script = ExtResource("8_ncflg")
+name = "knife"
+metadata/_custom_type_script = "uid://b5jod330da51a"
+
+[sub_resource type="Resource" id="Resource_rmejh"]
+script = ExtResource("8_ncflg")
+name = "food"
+metadata/_custom_type_script = "uid://b5jod330da51a"
+
+[sub_resource type="Resource" id="Resource_ncflg"]
+script = ExtResource("8_ncflg")
+name = "food"
+number = 10
+metadata/_custom_type_script = "uid://b5jod330da51a"
+
+[sub_resource type="Resource" id="Resource_sfolt"]
+script = ExtResource("8_ncflg")
+name = "bottle of water"
+number = 5
+metadata/_custom_type_script = "uid://b5jod330da51a"
+
 [node name="MainScene" type="Node2D" unique_id=735320970]
 script = ExtResource("1_8p0yu")
-
-[node name="display_scene" type="Node2D" parent="." unique_id=1421241234]
 
 [node name="game_event_manager" type="Node2D" parent="." unique_id=1849007147]
 script = ExtResource("2_8p0yu")
 events_list = Array[ExtResource("3_xc8me")]([ExtResource("4_v3ear"), ExtResource("5_m3hh0"), ExtResource("6_vtfip"), SubResource("Resource_m3hh0")])
+
+[node name="invetory_controller" type="Node2D" parent="." unique_id=730163971]
+visible = false
+script = ExtResource("7_vtfip")
+tools_list = Array[ExtResource("8_ncflg")]([SubResource("Resource_mhk4r"), SubResource("Resource_rmejh")])
+storage = Array[ExtResource("8_ncflg")]([SubResource("Resource_ncflg"), SubResource("Resource_sfolt")])
+
+[node name="inventory_node" type="Node2D" parent="invetory_controller" unique_id=859620867]
+position = Vector2(320, 416)
+
+[node name="back" type="Sprite2D" parent="invetory_controller/inventory_node" unique_id=33972099]
+modulate = Color(0.65, 0.5149083, 0.37049997, 1)
+position = Vector2(0, 32)
+scale = Vector2(5.78, 1)
+texture = ExtResource("9_mhk4r")
+
+[node name="display_scene" type="Node2D" parent="." unique_id=1421241234]

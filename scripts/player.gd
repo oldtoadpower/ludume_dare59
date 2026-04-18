@@ -1,5 +1,5 @@
 class_name Player
-extends Node
+extends Node2D
 
 var hp: int = 100
 var water: int = 100
@@ -10,7 +10,7 @@ var money: int = 0
 var med: int = 10
 var energy: int = 10
 
-var event_percent: float = 50.0
+var event_percent: float = 35.0
 var step_bonus: float = 0.0
 
 var empty_energy: bool = false

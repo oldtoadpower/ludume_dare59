@@ -1,3 +1,29 @@
 [gd_scene format=3 uid="uid://doqem7nv0oycj"]
 
+[ext_resource type="Script" uid="uid://e31suh0u8wcr" path="res://signal_scene/signal_scene.gd" id="1_oms63"]
+
 [node name="signal_scene" type="Node2D" unique_id=2018711936]
+script = ExtResource("1_oms63")
+
+[node name="Control" type="Control" parent="." unique_id=327903024]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 480.0
+
+[node name="signal_button" type="Button" parent="Control" unique_id=493363623]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SIGNAL"
+
+[connection signal="pressed" from="Control/signal_button" to="." method="_on_signal_button_pressed"]

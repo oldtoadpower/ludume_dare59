@@ -1,5 +1,5 @@
 class_name BaseSignal
-extends Node
+extends Node2D
 
 var distance: int = 0
 var type
