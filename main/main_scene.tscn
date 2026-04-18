@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dio24b21qiwb0"]
+
+[ext_resource type="Script" uid="uid://b8sx0u8ukwqj6" path="res://scripts/game_controller.gd" id="1_8p0yu"]
+[ext_resource type="PackedScene" uid="uid://cjm8qu6ma1tbw" path="res://path_scene/path.tscn" id="2_wqact"]
+
+[node name="MainScene" type="Node2D" unique_id=735320970]
+script = ExtResource("1_8p0yu")
+
+[node name="current_scene" type="Node2D" parent="." unique_id=1421241234]
+
+[node name="Path" parent="current_scene" unique_id=2032447789 instance=ExtResource("2_wqact")]

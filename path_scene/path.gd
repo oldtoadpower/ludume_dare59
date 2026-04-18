@@ -7,6 +7,8 @@ var current_signal: BaseSignal = BaseSignal.new()
 var player_pos: Vector2
 var path_pos: int = 0
 
+var full_distance_viev: float
+
 var tween_move: bool = false
 var path_end: bool = false
 
@@ -14,15 +16,20 @@ var path_end: bool = false
 
 
 func _ready() -> void:
+	full_distance_viev = POS_END.x - POS_START.x
 	player_pos = POS_START
 	current_signal.generate_distance()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_go_button_down() -> void:
 	if not tween_move and not path_end:
-		var step_distance = randi_range(15, 30)
+		var step_distance = randi_range(15, 30) + Main.game_controller.player.step_bonus
+		
+		if step_distance > 0:
+			Main.game_controller.player.water -= 1
+		
 		path_pos +=step_distance
 		if path_pos > current_signal.distance or (current_signal.distance - path_pos) <= 5:
 			path_end = true
@@ -38,10 +45,10 @@ func move_player_tween(new_position: int) -> void:
 	var tween = create_tween()
 	tween_move = true
 	
-	var procent_dist = new_position * 100 / current_signal.distance
-	var move_dist = procent_dist * 400.0 / 100.0
+	var procent_dist = float(new_position) * 100.0 / float(current_signal.distance)
+	var move_dist = procent_dist * full_distance_viev / 100.0
 	
-	tween.tween_property(player_sprite, 'position', Vector2(player_pos.x + move_dist, player_pos.y), 0.2)
+	tween.tween_property(player_sprite, 'position', Vector2(player_pos.x + move_dist, player_pos.y), 0.3)
 	tween.finished.connect(func(): tween_move = false)
 	tween.finished.connect(func(): tween.kill())
 	
